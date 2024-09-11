@@ -33,15 +33,15 @@ public class AuthServiceImpl implements AuthService {
             user.setUserRole(UserRole.ADMIN);
             user.setPassword(new BCryptPasswordEncoder().encode(adminPassword));
             userRepository.save(user);
-            System.out.println("Admin account created successfully");
+            System.out.println("Admin account created successfully !");
         }else{
-            System.out.println("Admin account already exist");
+            System.out.println("Admin account already exist !");
         }
     }
 
     public UserDto createUser(SignupRequest signupRequest){
         if( userRepository.findFirstByEmail(signupRequest.getEmail()).isPresent()){
-            throw new EntityExistsException("User Already Present With email '" + signupRequest.getEmail() + "'");
+            throw new EntityExistsException("User Already Present With email '" + signupRequest.getEmail() + "' !");
         }
         User user = new User();
         user.setEmail(signupRequest.getEmail());

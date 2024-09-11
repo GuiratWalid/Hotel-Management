@@ -3,12 +3,10 @@ package com.booking.HotelServer.dto;
 import lombok.Data;
 
 @Data
-public class SignupRequest {
+public class AuthenticationRequest {
 
     private String email;
 
     private String password;
-
-    private String name;
 
 }
