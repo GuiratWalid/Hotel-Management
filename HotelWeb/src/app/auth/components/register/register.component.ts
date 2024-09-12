@@ -40,7 +40,7 @@ export class RegisterComponent {
       console.log("Walid")
       console.log(res);
       if (res.id != null){
-        this.message.success("Signup uccessfully !", {nzDuration: 5000});
+        this.message.success("Signup successfully !", {nzDuration: 5000});
         this.router.navigateByUrl("/");
       } else{
         this.message.error(res.message, {nzDuration: 5000});
