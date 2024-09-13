@@ -3,9 +3,19 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "HotelWeb": {
+    "HOTELWEB": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "standalone": false
+        },
+        "@schematics/angular:directive": {
+          "standalone": false
+        },
+        "@schematics/angular:pipe": {
+          "standalone": false
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -13,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/hotel-web",
+            "outputPath": "dist/hotelweb",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -75,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "HotelWeb:build:production"
+              "buildTarget": "HOTELWEB:build:production"
             },
             "development": {
-              "buildTarget": "HotelWeb:build:development"
+              "buildTarget": "HOTELWEB:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -110,6 +120,6 @@
     }
   },
   "cli": {
-    "analytics": "2cc3d54e-7afe-40e8-8071-945b91992bb3"
+    "analytics": "a2611eec-aaca-49a3-809b-8b9d7da5344e"
   }
 }

@@ -1,18 +1,10 @@
-import { afterNextRender, Component } from '@angular/core';
-import { Router, RouterModule, RouterOutlet } from '@angular/router';
-import { NgZorroAntdModule } from './NgZorroAntdModule';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserStorageService } from './auth/services/storage/user-storage.service';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [
-    RouterModule,
-    RouterOutlet,
-    NgZorroAntdModule,
-    CommonModule
-],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

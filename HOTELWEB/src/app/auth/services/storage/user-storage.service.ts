@@ -21,11 +21,12 @@ export class UserStorageService {
   }
 
   static getToken(): string{
-    return localStorage.getItem(TOKEN);
+    return localStorage.getItem(TOKEN) || "";
   }
 
   static getUser(): any{
-    return JSON.parse(localStorage.getItem(USER));
+    const userString = localStorage.getItem(USER);
+    return userString ? JSON.parse(userString) : null;
   }
 
   static getUserId(): string{
