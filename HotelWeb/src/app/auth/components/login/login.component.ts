@@ -36,7 +36,6 @@ export class LoginComponent {
 
   submitForm(){
     this.authService.login(this.loginForm.value).subscribe(res => {
-      console.log(res);
       if (res.userId != null){
         const user = {
           id: res.userId,
@@ -44,7 +43,12 @@ export class LoginComponent {
         };
         UserStorageService.saveUser(user);
         UserStorageService.saveToken(res.jwt);
-        this.message.success("Login successfully !", {nzDuration: 5000});
+        if(UserStorageService.isAdminLoggedIn()){
+          this.router.navigateByUrl('/admin/dashboard');
+        }
+        else if(UserStorageService.isCustomerLoggedIn()){
+          this.router.navigateByUrl('/customer/rooms');
+        }
       } else{
         this.message.error("Bad credentials !", {nzDuration: 5000});
       }

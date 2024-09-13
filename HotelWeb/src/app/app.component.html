@@ -17,9 +17,9 @@
     </ul>
   </nz-sider>
   <nz-sider nzCollapsible nzWidth="200px" *ngIf="isAdminLoggedIn">
-    <div class="logo"><h1>Admin</h1></div>
+    <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item routerLink="/admin/rooms">
+      <li nz-menu-item routerLink="/admin/dashboard">
         <span nz-icon nzType="apartment"></span>
         <span>
           <strong>Rooms</strong>
@@ -40,7 +40,7 @@
     </ul>
   </nz-sider>
   <nz-sider nzCollapsible nzWidth="200px" *ngIf="isCustomerLoggedIn">
-    <div class="logo"><h1>Customer</h1></div>
+    <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-menu-item routerLink="/customer/rooms">
         <span nz-icon nzType="apartment"></span>
