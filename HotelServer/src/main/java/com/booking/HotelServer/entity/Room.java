@@ -12,7 +12,7 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String name;
 
@@ -20,7 +20,6 @@ public class Room {
 
     private Long price;
 
-    private boolean available;
-    
+    private Boolean available;
 
 }
