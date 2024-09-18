@@ -12,6 +12,7 @@ import { NzSkeletonModule } from 'ng-zorro-antd/skeleton';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @NgModule({
   exports: [
@@ -25,7 +26,8 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
     NzSkeletonModule,
     NzAvatarModule,
     NzPaginationModule,
-    NzSpinModule
+    NzSpinModule,
+    NzModalModule
   ]
 })
 export class NgZorroAntdModule {}

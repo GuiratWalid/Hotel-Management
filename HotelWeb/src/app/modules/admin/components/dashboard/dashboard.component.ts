@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AdminService } from '../../admin-services/admin.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Room } from '../../dto/room';
+import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,7 @@ export class DashboardComponent {
 
   constructor(private adminService: AdminService,
     private message: NzMessageService,
+    private modalService: NzModalService
   ){
     if(typeof localStorage !== 'undefined')
       this.getRooms();
@@ -37,6 +39,28 @@ export class DashboardComponent {
     this.loading_skeleton = true;
     this.currentPage = value;
     this.getRooms();
+  }
+
+  show_confirmation(roomId: number){
+    this.modalService.confirm({
+      nzTitle: 'Confirm',
+      nzContent: 'Do you want to delete this room ?',
+      nzOkText: 'Delete',
+      nzCancelText: 'Cancel',
+      nzOnOk: () => this.deleteRoom(roomId)
+    });
+  }
+
+  deleteRoom(roomId: number){
+    this.adminService.deleteRoom(roomId).subscribe(res => {
+      this.message.success(
+        "Room deleted successfully !",
+        {nzDuration: 5000}
+      );
+      //this.loading_page = true;
+      this.getRooms();
+    }, error => this.message.error(error.error, {nzDuration: 5000})
+    );
   }
 
 }

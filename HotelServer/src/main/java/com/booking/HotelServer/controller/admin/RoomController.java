@@ -49,4 +49,16 @@ public class RoomController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
+    @DeleteMapping("/room/{id}")
+    public ResponseEntity<?> updateRoom(@PathVariable Long id) {
+        try {
+            roomService.deleteRoom(id);
+            return ResponseEntity.ok(null);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong !");
+        }
+    }
+
 }

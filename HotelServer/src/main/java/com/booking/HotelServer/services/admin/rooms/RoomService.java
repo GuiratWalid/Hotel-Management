@@ -13,4 +13,6 @@ public interface RoomService {
 
     boolean updateRoom(Long id, RoomDto roomDto);
 
+    void deleteRoom(Long id);
+
 }

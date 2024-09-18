@@ -34,7 +34,6 @@ export class UpdateRoomComponent {
 
   submitForm(){
     this.adminService.updateRoom(this.id, this.updateRoomForm.value).subscribe(res => {
-      console.log(res);
       this.message.success(
         "Room updated successfully !",
         {nzDuration: 5000}
