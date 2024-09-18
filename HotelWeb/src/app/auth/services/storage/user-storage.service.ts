@@ -29,10 +29,10 @@ export class UserStorageService {
     return userString ? JSON.parse(userString) : null;
   }
 
-  static getUserId(): string{
+  static getUserId(): number{
     const user = this.getUser();
     if (user == null)
-      return '';
+      return 0;
     else return user.id;
   }
 

@@ -1,1 +1,48 @@
-<p>rooms works!</p>
+<div class="center-form">
+    @if(!loading_page){
+        <div class="room-container">
+            @for(room of rooms; track room.id){
+                <div class="room-row">
+                    <nz-card style="width: 300px; margin: 16px;" [nzActions]="[actionEdit]">
+                        <nz-skeleton [nzActive]="true" [nzLoading]="loading_skeleton" [nzAvatar]="{size: 'large'}">
+                            <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="{{room.name}}" nzDescription="Type: {{room.type}}"></nz-card-meta>
+
+                            <nz-card-meta style="margin-left: 50px;" nzDescription="Price: {{room.price}}"></nz-card-meta>
+                        </nz-skeleton>
+                    </nz-card>
+
+                    <ng-template #avatarTemplate>
+                        <nz-avatar nzSrc="https://s31606.pcdn.co/wp-content/uploads/2016/08/hotel-rooms.jpg"></nz-avatar>
+                    </ng-template>
+
+                    <ng-template #actionEdit>
+                        <span nz-icon nzType="check-square" [nzTheme]="'twotone'" class="icon" (click)="showModalMiddle(room.id)"></span>
+                    </ng-template>
+                </div>
+            }
+            @empty {
+                <div class="no-rooms">
+                    <img src="../../../../../assets/empty.png" alt="No rooms available" />
+                    <h2>No rooms are added at the moment !</h2>
+                </div>
+            }
+        </div>
+        <div *ngIf="rooms.length !== 0" class="pagination">
+            <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="1"
+            (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
+        </div>
+
+        <nz-modal nzTitle="Book Room" nzCentered [(nzVisible)]="isVisibleMiddle" (nzOnCancel)="handleCancelMiddle()" (nzOnOk)="handleOkMiddle()">
+            <ng-container *nzModalContent>
+                <div class="modal-content">
+                    <nz-range-picker style="width: 100%;" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+                </div>
+            </ng-container>
+        </nz-modal>
+    } 
+    @else {
+        <div class="loading-container">
+            <nz-spin nzTip="Loading..." [nzSize]="'large'"></nz-spin>
+        </div>
+    }
+</div>

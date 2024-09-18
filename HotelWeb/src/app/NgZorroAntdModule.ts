@@ -13,6 +13,7 @@ import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 @NgModule({
   exports: [
@@ -27,7 +28,8 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
     NzAvatarModule,
     NzPaginationModule,
     NzSpinModule,
-    NzModalModule
+    NzModalModule,
+    NzDatePickerModule
   ]
 })
 export class NgZorroAntdModule {}

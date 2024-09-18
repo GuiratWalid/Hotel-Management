@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../../admin-services/admin.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { Room } from '../../dto/room';
+import { Room } from '../../../../dto/room';
 import { NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
