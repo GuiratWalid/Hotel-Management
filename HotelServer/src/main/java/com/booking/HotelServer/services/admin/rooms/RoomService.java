@@ -5,8 +5,12 @@ import com.booking.HotelServer.dto.RoomResponseDto;
 
 public interface RoomService {
 
-    public boolean postRoom(RoomDto roomDto);
+    boolean postRoom(RoomDto roomDto);
 
     RoomResponseDto getAllRooms(int pageNumber);
+
+    RoomDto getRoomById(Long id);
+
+    boolean updateRoom(Long id, RoomDto roomDto);
 
 }

@@ -8,6 +8,7 @@ import { RoomsComponent } from '../customer/components/rooms/rooms.component';
 import { PostRoomComponent } from './components/post-room/post-room.component';
 import { NgZorroAntdModule } from '../../NgZorroAntdModule';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateRoomComponent } from './components/update-room/update-room.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AdminComponent,
     DashboardComponent,
     RoomsComponent,
-    PostRoomComponent
+    PostRoomComponent,
+    UpdateRoomComponent
   ],
   imports: [
     CommonModule,

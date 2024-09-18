@@ -33,8 +33,8 @@ export class PostRoomComponent {
         {nzDuration: 5000}
       );
       this.router.navigateByUrl("/admin/dashboard");
-    }, error => this.message.error(error.error, {nzDuration: 5000})
-  )
+      }, error => this.message.error(error.error, {nzDuration: 5000})
+    )
   }
 
 }
