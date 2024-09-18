@@ -13,6 +13,7 @@ export class UpdateRoomComponent {
 
   updateRoomForm: FormGroup;
   id: number = 0;
+  loading_page = true;
 
   constructor(private fb: FormBuilder,
     private message: NzMessageService,
@@ -38,16 +39,19 @@ export class UpdateRoomComponent {
         "Room updated successfully !",
         {nzDuration: 5000}
       );
-      this.router.navigateByUrl("/admin/dashboard");
       }, error => this.message.error(error.error, {nzDuration: 5000})
-    )
+    );
+    this.router.navigateByUrl("/admin/dashboard");
   }
 
   getRoomById(){
     this.adminService.getRoomById(this.id).subscribe(res => {
       this.updateRoomForm.patchValue(res);
-    }, error => this.message.error(error.error, {nzDuration: 5000})
-    )
+      this.loading_page = false;
+    }, error => {
+      this.message.error(error.error, {nzDuration: 5000});
+      this.router.navigateByUrl("/admin/dashboard");
+    });
   }
 
 }

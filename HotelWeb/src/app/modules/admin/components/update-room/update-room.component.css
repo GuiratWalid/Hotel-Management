@@ -48,3 +48,12 @@ input {
 input::placeholder {
     color: #a0b6c2;
 }
+
+.loading-container {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

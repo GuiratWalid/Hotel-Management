@@ -44,3 +44,12 @@ nz-card {
     margin-bottom: 10px;
     color: #665855;
 }
+
+.loading-container {
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}

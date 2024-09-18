@@ -13,7 +13,8 @@ export class DashboardComponent {
   currentPage = 1;
   rooms: Room[] = [];
   total: any;
-  loading = true;
+  loading_skeleton = false;
+  loading_page = true;
 
   constructor(private adminService: AdminService,
     private message: NzMessageService,
@@ -24,15 +25,16 @@ export class DashboardComponent {
 
   getRooms(){
     this.adminService.getRooms(this.currentPage - 1).subscribe(res => {
-      console.log(res);
       this.rooms = res.roomDtoList;
       this.total = res.totalPages;
-      this.loading = false;
-    })
+      this.loading_skeleton = false;
+      this.loading_page = false;
+    }, error => this.message.error(error.error, {nzDuration: 5000})
+    );
   }
 
   pageIndexChange(value: any){
-    this.loading = true;
+    this.loading_skeleton = true;
     this.currentPage = value;
     this.getRooms();
   }

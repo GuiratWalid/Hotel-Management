@@ -1,28 +1,35 @@
 <div class="room-details-form-container">
-    <nz-form nzLayout="vertical" class="room-details-form" [formGroup]="updateRoomForm">
-        <div class="form-title">Update Room Details</div>
-        <nz-form-item>
-            <nz-form-control [nzSpan]="16" [nzOffset]="4">
-                <input nz-input formControlName="name" placeholder="Enter Name"/>
-            </nz-form-control>
-        </nz-form-item>
+    @if(!loading_page){
+        <nz-form nzLayout="vertical" class="room-details-form" [formGroup]="updateRoomForm">
+            <div class="form-title">Update Room Details</div>
+            <nz-form-item>
+                <nz-form-control [nzSpan]="16" [nzOffset]="4">
+                    <input nz-input formControlName="name" placeholder="Enter Name"/>
+                </nz-form-control>
+            </nz-form-item>
 
-        <nz-form-item>
-            <nz-form-control [nzSpan]="16" [nzOffset]="4">
-                <input nz-input formControlName="type" placeholder="Enter Type"/>
-            </nz-form-control>
-        </nz-form-item>
+            <nz-form-item>
+                <nz-form-control [nzSpan]="16" [nzOffset]="4">
+                    <input nz-input formControlName="type" placeholder="Enter Type"/>
+                </nz-form-control>
+            </nz-form-item>
 
-        <nz-form-item>
-            <nz-form-control [nzSpan]="16" [nzOffset]="4">
-                <input nz-input formControlName="price" placeholder="Enter Price"/>
-            </nz-form-control>
-        </nz-form-item>
+            <nz-form-item>
+                <nz-form-control [nzSpan]="16" [nzOffset]="4">
+                    <input nz-input formControlName="price" placeholder="Enter Price"/>
+                </nz-form-control>
+            </nz-form-item>
 
-        <nz-form-item>
-            <nz-form-label nz-form-item-control [nzSpan]="11" [nzOffset]="4">
-                <button nz-button nzType="primary" type="submit" (click)="submitForm()">Update</button>
-            </nz-form-label>
-        </nz-form-item>
-    </nz-form>
+            <nz-form-item>
+                <nz-form-label nz-form-item-control [nzSpan]="11" [nzOffset]="4">
+                    <button nz-button nzType="primary" type="submit" (click)="submitForm()">Update</button>
+                </nz-form-label>
+            </nz-form-item>
+        </nz-form>
+    }
+    @else {
+        <div class="loading-container">
+            <nz-spin nzTip="Loading..." [nzSize]="'large'"></nz-spin>
+        </div>
+    }
 </div>
