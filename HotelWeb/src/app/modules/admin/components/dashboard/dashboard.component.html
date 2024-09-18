@@ -1,1 +1,38 @@
-<p>dashboard works!</p>
+<div class="center-form">
+    <button nz-button nzType="primary" class="post-room-btn" routerLink="/admin/room">Post Room</button>
+    <div class="room-container">
+        @for(room of rooms; track room.id){
+            <div class="room-row">
+                <nz-card style="width: 300px; margin: 16px;" [nzActions]="[actionEdit, actionDelete]">
+                    <nz-skeleton [nzActive]="true" [nzLoading]="loading" [nzAvatar]="{size: 'large'}">
+                        <nz-card-meta [nzAvatar]="avatarTemplate" nzTitle="{{room.name}}" nzDescription="Type: {{room.type}}"></nz-card-meta>
+
+                        <nz-card-meta style="margin-left: 50px;" nzDescription="Price: {{room.price}}"></nz-card-meta>
+                    </nz-skeleton>
+                </nz-card>
+
+                <ng-template #avatarTemplate>
+                    <nz-avatar nzSrc="https://s31606.pcdn.co/wp-content/uploads/2016/08/hotel-rooms.jpg"></nz-avatar>
+                </ng-template>
+
+                <ng-template #actionEdit>
+                    <span nz-icon nzType="edit" [nzTheme]="'twotone'" class="icon"></span>
+                </ng-template>
+
+                <ng-template #actionDelete>
+                    <span nz-icon nzType="delete" [nzTheme]="'twotone'" class="icon" [nzTwotoneColor]="'#FF0000'"></span>
+                </ng-template>
+            </div>
+        }
+        @empty {
+            <div class="no-rooms">
+                <img src="../../../../../assets/empty.png" alt="No rooms available" />
+                <h2>No rooms are added at the moment !</h2>
+            </div>
+        }
+    </div>
+    <div *ngIf="rooms.length !== 0" class="pagination">
+        <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="1"
+        (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
+    </div>
+</div>

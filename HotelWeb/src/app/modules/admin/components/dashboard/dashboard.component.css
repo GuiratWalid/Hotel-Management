@@ -1,0 +1,46 @@
+.center-form {
+    height: 95vh;
+    width: 100%;
+}
+
+.room-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+nz-card {
+    margin-right: 16px;
+}
+
+.post-room-btn {
+    margin-left: 175px;
+    margin-top: 70px;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.pagination {
+    float: right;
+    margin-right: 170px;
+}
+
+.no-rooms {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.no-rooms img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.no-rooms h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #665855;
+}
