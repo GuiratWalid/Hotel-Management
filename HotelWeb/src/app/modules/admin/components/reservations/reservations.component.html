@@ -1,0 +1,48 @@
+<div class="center-form">
+    @if(!loading_page){
+        <h1 class="page-title">Reservations</h1>
+        @if(reservations.length === 0) {
+            <div class="no-reservations">
+                <img src="../../../../../assets/empty.png" alt="No rooms available" />
+                <h2>There are currently no reservations. Please check back later.</h2>
+            </div>
+        }
+        @else {
+            <nz-table #basicTable [nzShowPagination]="'false'" [nzData]="reservations">
+                <thead>
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Room Type</th>
+                        <th>Check In Date</th>
+                        <th>Check Out Date</th>
+                        <th>Price</th>
+                        <th>Username</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(reservation of reservations; track reservation.id) {
+                        <tr>
+                            <td>{{ reservation.roomName }}</td>
+                            <td>{{ reservation.roomType }}</td>
+                            <td>{{ reservation.checkInDate }}</td>
+                            <td>{{ reservation.checkOutDate }}</td>
+                            <td>{{ reservation.price }}</td>
+                            <td>{{ reservation.username }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </nz-table>
+            <div *ngIf="reservations.length !== 0" class="pagination">
+                <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="1"
+                (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
+            </div>
+        }
+    } 
+    @else {
+        <nz-spin nzTip="Loading..." [nzSize]="'large'"></nz-spin>
+    }
+</div>

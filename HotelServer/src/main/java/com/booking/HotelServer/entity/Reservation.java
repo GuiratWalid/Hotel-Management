@@ -1,5 +1,6 @@
 package com.booking.HotelServer.entity;
 
+import com.booking.HotelServer.dto.ReservationDto;
 import com.booking.HotelServer.enums.ReservationStatus;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -33,5 +34,23 @@ public class Reservation {
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
+
+    public ReservationDto getReservationDto() {
+        ReservationDto reservationDto = new ReservationDto();
+        reservationDto.setId(id);
+        reservationDto.setCheckInDate(checkInDate);
+        reservationDto.setCheckOutDate(checkOutDate);
+        reservationDto.setPrice(price);
+        reservationDto.setReservationStatus(reservationStatus);
+
+        reservationDto.setUserId(user.getId());
+        reservationDto.setUsername(user.getName());
+
+        reservationDto.setRoomId(room.getId());
+        reservationDto.setRoomName(room.getName());
+        reservationDto.setRoomType(room.getType());
+
+        return reservationDto;
+    }
 
 }

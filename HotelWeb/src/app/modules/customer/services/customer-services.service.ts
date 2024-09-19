@@ -20,7 +20,7 @@ export class CustomerServicesService {
   }
 
   bookRoom(reservationDto: Reservation): Observable<any>{
-    return this.http.post(BASIC_URL + `api/customer/book`, reservationDto, {
+    return this.http.post(BASIC_URL + `api/customer/reservation`, reservationDto, {
       headers: this.createAuthorizationHeader(),
     });
   }

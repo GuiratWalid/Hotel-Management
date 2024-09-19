@@ -1,0 +1,42 @@
+.center-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 95vh;
+    width: 100%;
+}
+
+.page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #061729;
+}
+
+.icon {
+    margin: 5px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.pagination {
+    float: right;
+    margin-top: 10px;
+}
+
+.no-reservations {
+    text-align: center;
+    margin-top: 150px;
+}
+
+.no-reservations img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.no-reservations h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #665855;
+}

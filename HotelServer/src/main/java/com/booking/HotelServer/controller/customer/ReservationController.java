@@ -17,7 +17,7 @@ public class ReservationController {
 
     private final ReservationService reservationService;
 
-    @PostMapping("book")
+    @PostMapping("reservation")
     public ResponseEntity<?> postBooking(@RequestBody ReservationDto reservationDto){
         boolean success = reservationService.postReservation(reservationDto);
         if(success)
