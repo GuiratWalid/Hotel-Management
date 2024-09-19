@@ -25,7 +25,8 @@ export class CustomerService {
     });
   }
 
-  getBookings(userId: number, pageNumber: number): Observable<any>{
+  getUserBookings(pageNumber: number): Observable<any>{
+    const userId = UserStorageService.getUserId();
     return this.http.get(BASIC_URL + `api/customer/reservations/${userId}/${pageNumber}`, {
       headers: this.createAuthorizationHeader(),
     });

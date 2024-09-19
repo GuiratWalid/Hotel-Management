@@ -1,6 +1,6 @@
 <div class="center-form">
     @if(!loading_page){
-        <h1 class="page-title">Reservations</h1>
+        <h1 class="page-title">My Bookings</h1>
         @if(bookings.length === 0) {
             <div class="no-bookings">
                 <img src="../../../../../assets/empty.png" alt="No rooms available" />
@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for(booking of bookings; track booking.id) {
+                    @for(booking of basicTable.data; track booking.id) {
                         <tr>
                             <td>{{ booking.roomName }}</td>
                             <td>{{ booking.roomType }}</td>

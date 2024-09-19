@@ -21,12 +21,11 @@ export class BookingsComponent {
     private message: NzMessageService
   ){
     if(typeof localStorage !== 'undefined')
-      this.getReservations();
+      this.getMyBookings();
   }
 
-  getReservations(){
-    this.userId = UserStorageService.getUserId();
-    this.customerService.getBookings(this.userId, this.currentPage - 1).subscribe(res => {
+  getMyBookings(){
+    this.customerService.getUserBookings(this.currentPage - 1).subscribe(res => {
       this.bookings = res.reservationDtoList;
       this.total = res.totalPages;
       this.loading_page = false;
@@ -36,7 +35,7 @@ export class BookingsComponent {
 
   pageIndexChange(value: any){
     this.currentPage = value;
-    this.getReservations();
+    this.getMyBookings();
   }
 
 }

@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @for(reservation of reservations; track reservation.id) {
+                    @for(reservation of basicTable.data; track reservation.id) {
                         <tr>
                             <td>{{ reservation.roomName }}</td>
                             <td>{{ reservation.roomType }}</td>

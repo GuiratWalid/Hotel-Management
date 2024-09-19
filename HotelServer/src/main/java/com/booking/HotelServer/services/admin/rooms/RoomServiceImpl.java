@@ -20,6 +20,8 @@ public class RoomServiceImpl implements RoomService {
 
     private final RoomRepository roomRepository;
 
+    public static final int SEARCH_RESULT_PER_PAGE = 6;
+
     public boolean postRoom(RoomDto roomDto) {
         try {
             Room room = new Room();
@@ -35,7 +37,7 @@ public class RoomServiceImpl implements RoomService {
     }
 
     public RoomResponseDto getAllRooms(int pageNumber) {
-        Pageable pageable = PageRequest.of(pageNumber, 6);
+        Pageable pageable = PageRequest.of(pageNumber, SEARCH_RESULT_PER_PAGE);
         Page<Room> roomPage = roomRepository.findAll(pageable);
         RoomResponseDto roomResponseDto = new RoomResponseDto();
         roomResponseDto.setPageNumber(roomPage.getPageable().getPageNumber());

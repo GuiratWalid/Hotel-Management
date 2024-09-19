@@ -17,8 +17,10 @@ public class RoomServiceImpl implements RoomService{
 
     private final RoomRepository roomRepository;
 
+    public static final int SEARCH_RESULT_PER_PAGE = 6;
+
     public RoomResponseDto getAvailableRooms(int pageNumber) {
-        Pageable pageable = PageRequest.of(pageNumber, 6);
+        Pageable pageable = PageRequest.of(pageNumber, SEARCH_RESULT_PER_PAGE);
         Page<Room> roomPage = roomRepository.findByAvailable(true, pageable);
         RoomResponseDto roomResponseDto = new RoomResponseDto();
         roomResponseDto.setPageNumber(roomPage.getPageable().getPageNumber());
