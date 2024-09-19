@@ -69,14 +69,13 @@ export class RoomsComponent {
       roomId: this.id,
       checkInDate: this.checkInDate,
       checkOutDate: this.checkOutDate,
-      id: null,
+      id: 0,
       price: null,
       reservationStatus: null,
       roomType: null,
       roomName: null,
       username: null
     };
-    console.log(reservationDto)
     this.customerService.bookRoom(reservationDto).subscribe(res => {
       this.message.success(
         "Request submitted for approval !",

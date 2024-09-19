@@ -1,5 +1,5 @@
 export interface Reservation {
-    id: number | null;
+    id: number;
     checkInDate: Date;
     checkOutDate: Date;
     price: number | null;

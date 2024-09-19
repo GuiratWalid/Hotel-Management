@@ -15,6 +15,7 @@ import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzTagModule } from 'ng-zorro-antd/tag';
 
 @NgModule({
   exports: [
@@ -31,7 +32,8 @@ import { NzTableModule } from 'ng-zorro-antd/table';
     NzSpinModule,
     NzModalModule,
     NzDatePickerModule,
-    NzTableModule
+    NzTableModule,
+    NzTagModule
   ]
 })
 export class NgZorroAntdModule {}
