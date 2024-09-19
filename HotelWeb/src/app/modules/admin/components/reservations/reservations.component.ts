@@ -24,7 +24,6 @@ export class ReservationsComponent {
 
   getReservations(){
     this.adminService.getReservations(this.currentPage - 1).subscribe(res => {
-      console.log(res);
       this.reservations = res.reservationDtoList;
       this.total = res.totalPages;
       this.loading_page = false;

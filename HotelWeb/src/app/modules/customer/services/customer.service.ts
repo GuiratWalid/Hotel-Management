@@ -9,7 +9,7 @@ const BASIC_URL = "http://localhost:8080/";
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerServicesService {
+export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,12 @@ export class CustomerServicesService {
 
   bookRoom(reservationDto: Reservation): Observable<any>{
     return this.http.post(BASIC_URL + `api/customer/reservation`, reservationDto, {
+      headers: this.createAuthorizationHeader(),
+    });
+  }
+
+  getBookings(userId: number, pageNumber: number): Observable<any>{
+    return this.http.get(BASIC_URL + `api/customer/reservations/${userId}/${pageNumber}`, {
       headers: this.createAuthorizationHeader(),
     });
   }

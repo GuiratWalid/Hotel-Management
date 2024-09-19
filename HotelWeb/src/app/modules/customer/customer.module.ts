@@ -5,11 +5,13 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
 import { NgZorroAntdModule } from '../../NgZorroAntdModule';
 import { FormsModule } from '@angular/forms';
+import { BookingsComponent } from './components/bookings/bookings.component';
 
 
 @NgModule({
   declarations: [
-    CustomerComponent
+    CustomerComponent,
+    BookingsComponent
   ],
   imports: [
     CommonModule,

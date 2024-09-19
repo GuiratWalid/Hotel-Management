@@ -18,7 +18,7 @@ public class ReservationController {
         try{
             return ResponseEntity.ok(reservationService.getAllReservations(pageNumber));
         } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Samething went wrong !");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong !");
         }
     }
 
@@ -28,7 +28,7 @@ public class ReservationController {
         if(success)
             return ResponseEntity.ok().build();
         else
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Samething went wrong !");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Something went wrong !");
     }
 
 }

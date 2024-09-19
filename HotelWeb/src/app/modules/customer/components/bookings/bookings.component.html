@@ -1,0 +1,65 @@
+<div class="center-form">
+    @if(!loading_page){
+        <h1 class="page-title">Reservations</h1>
+        @if(bookings.length === 0) {
+            <div class="no-bookings">
+                <img src="../../../../../assets/empty.png" alt="No rooms available" />
+                <h2>There are currently no reservations. Please check back later.</h2>
+            </div>
+        }
+        @else {
+            <nz-table #basicTable [nzShowPagination]="'false'" [nzData]="bookings">
+                <thead>
+                    <tr>
+                        <th>Room Name</th>
+                        <th>Room Type</th>
+                        <th>Check In Date</th>
+                        <th>Check Out Date</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(booking of bookings; track booking.id) {
+                        <tr>
+                            <td>{{ booking.roomName }}</td>
+                            <td>{{ booking.roomType }}</td>
+                            <td>{{ booking.checkInDate }}</td>
+                            <td>{{ booking.checkOutDate }}</td>
+                            <td>{{ booking.price }}</td>
+                            <td>
+                                <ng-container>
+                                    @if(booking.reservationStatus === 'PENDING'){
+                                        <nz-tag nzColor="processing">
+                                            <span nz-icon nzType="sync" nzSpin></span>
+                                            <span>Pending</span>
+                                        </nz-tag>
+                                    }
+                                    @else if(booking.reservationStatus === 'APPROVED'){
+                                        <nz-tag nzColor="success">
+                                            <span nz-icon nzType="check-circle"></span>
+                                            <span>Approved</span>
+                                        </nz-tag>
+                                    }
+                                    @else if(booking.reservationStatus === 'REJECTED'){
+                                        <nz-tag nzColor="error">
+                                            <span nz-icon nzType="close-circle"></span>
+                                            <span>Rejected</span>
+                                        </nz-tag>
+                                    }
+                                </ng-container>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </nz-table>
+            <div *ngIf="bookings.length !== 0" class="pagination">
+                <nz-pagination [nzPageIndex]="currentPage" [nzTotal]="total" [nzPageSize]="1"
+                (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
+            </div>
+        }
+    } 
+    @else {
+        <nz-spin nzTip="Loading..." [nzSize]="'large'"></nz-spin>
+    }
+</div>

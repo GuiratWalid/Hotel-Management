@@ -20,9 +20,4 @@ public class RoomController {
         return ResponseEntity.ok(roomService.getAvailableRooms(pageNumber));
     }
 
-//    @GetMapping("/walid")
-//    public ResponseEntity<?> testyt(){
-//        return ResponseEntity.ok("Walid");
-//    }
-
 }

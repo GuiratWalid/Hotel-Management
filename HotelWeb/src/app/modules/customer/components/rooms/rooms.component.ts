@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CustomerServicesService } from '../../services/customer-services.service';
+import { CustomerService } from '../../services/customer.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { Room } from '../../../../dto/room';
@@ -20,7 +20,7 @@ export class RoomsComponent {
   loading_skeleton = false;
   loading_page = true;
 
-  constructor(private customerService: CustomerServicesService,
+  constructor(private customerService: CustomerService,
     private message: NzMessageService,
     private modalService: NzModalService
   ){
