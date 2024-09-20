@@ -2,9 +2,6 @@ package com.booking.HotelServer.configs;
 
 import com.booking.HotelServer.enums.UserRole;
 import com.booking.HotelServer.services.jwt.UserService;
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;

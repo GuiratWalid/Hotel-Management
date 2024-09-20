@@ -76,6 +76,7 @@ export class RoomsComponent {
       roomName: null,
       username: null
     };
+    this.isVisibleMiddle = false;
     this.customerService.bookRoom(reservationDto).subscribe(res => {
       this.message.success(
         "Request submitted for approval !",

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Reservation } from '../../../../dto/reservation';
 import { CustomerService } from '../../services/customer.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { UserStorageService } from '../../../../auth/services/storage/user-storage.service';
 
 @Component({
   selector: 'app-bookings',
